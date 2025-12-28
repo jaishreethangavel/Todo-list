@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title> Todo List</title>
+    </head>
+    <style>
+        body{
+            margin:20px;
+            display:flex;
+            justify-content:center;
+            margin-top:20px;
+        }
+        .todo-container{
+            background-color: white;
+            padding: 15px;
+        }
+        h2{
+            text-align: center;
+        }
+        button{
+            background-color: white;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border:none;
+            cursor: pointer;
+            text-align: center;
+        }
+        li{
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        li button{
+            background-color: red;
+            padding: 5px;
+        }
+    </style>
+        <div class ="todo-container">
+        <h2>Todo List</h2>
+        <input id ="task" placeholder="Enter your task">
+        <button onclick ="addtask()">Add</button>
+        <ul id="tasklist"></ul>
+        </div>
+        <script>
+            var input = document.getElementById("task")
+            var list = document.getElementById("tasklist")
+            function addtask(){
+                if(input.value==""){
+                    alert("please enter a task(task can't be empty)")
+                    return
+                }
+                var li = document.createElement("li")
+                li.textContent = input.value
+                var deletebtn = document.createElement("button")
+                deletebtn.textContent = "X"
+                deletebtn.onclick = function(){
+                    li.remove()
+                }
+                li.append(deletebtn)
+                list.append(li)
+                input.value=""
+            }
+            
+        
+        </script>
+
+
+</html>
